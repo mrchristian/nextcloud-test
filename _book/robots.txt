@@ -1,0 +1,1 @@
+Sitemap: https://mrchristian.github.io/nextcloud-test/sitemap.xml
