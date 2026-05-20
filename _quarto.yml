@@ -6,6 +6,9 @@ book:
   title: "Nextcloud Test"
   author: "Author Name"
   date: today
+  downloads: [pdf, epub]
+  repo-url: https://github.com/mrchristian/nextcloud-test
+  repo-actions: [edit, issue, source]
   chapters:
     - index.qmd
     - chapters/01-introduction.qmd
