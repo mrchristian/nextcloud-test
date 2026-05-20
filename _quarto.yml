@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: docs
+  output-dir: _book
 
 book:
   title: "Nextcloud Test"
@@ -9,6 +9,7 @@ book:
   downloads: [pdf, epub]
   repo-url: https://github.com/mrchristian/nextcloud-test
   repo-actions: [edit, issue, source]
+  site-url: https://mrchristian.github.io/nextcloud-test/
   chapters:
     - index.qmd
     - chapters/01-introduction.qmd
