@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Planning for the future – Nextcloud Test</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/07-appendix.html" rel="next">
+<link href="../chapters/05-long-term-perspective.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-87b7f55de2e0c9887283481eb31a794c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/06-planning-for-the-future.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Planning for the future</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Nextcloud Test</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/mrchristian/nextcloud-test" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Nextcloud-Test.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Nextcloud-Test.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction: Why You Really Should Read This Book</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-premises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Premises: Key Considerations Before Starting Your DSE</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-project-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Design: Planning the Editing Journey</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-implementation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Implementation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-long-term-perspective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long term perspective on your edition</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-planning-for-the-future.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Planning for the future</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-benchmark-manual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Manual</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-benchmark-gemini.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Gemini</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-benchmark-claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Claude</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#implementing-artificial-intelligence-ai-and-large-language-models-llm-into-dses" id="toc-implementing-artificial-intelligence-ai-and-large-language-models-llm-into-dses" class="nav-link active" data-scroll-target="#implementing-artificial-intelligence-ai-and-large-language-models-llm-into-dses"><span class="header-section-number">6.1</span> Implementing Artificial Intelligence (AI) and Large Language Models (LLM) into DSEs</a>
+  <ul class="collapse">
+  <li><a href="#ideas-and-methods-for-ai-use-in-dses" id="toc-ideas-and-methods-for-ai-use-in-dses" class="nav-link" data-scroll-target="#ideas-and-methods-for-ai-use-in-dses"><span class="header-section-number">6.1.1</span> Ideas and Methods for AI Use in DSEs</a></li>
+  <li><a href="#considering-the-environmental-issues" id="toc-considering-the-environmental-issues" class="nav-link" data-scroll-target="#considering-the-environmental-issues"><span class="header-section-number">6.1.2</span> Considering the Environmental issues</a></li>
+  </ul></li>
+  <li><a href="#digital-editions-in-other-contexts" id="toc-digital-editions-in-other-contexts" class="nav-link" data-scroll-target="#digital-editions-in-other-contexts"><span class="header-section-number">6.2</span> Digital Editions in Other Contexts</a>
+  <ul class="collapse">
+  <li><a href="#glams-galleries-libraries-archives-and-museums-and-dse" id="toc-glams-galleries-libraries-archives-and-museums-and-dse" class="nav-link" data-scroll-target="#glams-galleries-libraries-archives-and-museums-and-dse"><span class="header-section-number">6.2.1</span> GLAMs (Galleries, Libraries, Archives and Museums) and DSE</a></li>
+  <li><a href="#valorising-a-dse-outside-academia" id="toc-valorising-a-dse-outside-academia" class="nav-link" data-scroll-target="#valorising-a-dse-outside-academia"><span class="header-section-number">6.2.2</span> Valorising a DSE outside Academia</a></li>
+  <li><a href="#gamification-of-dses" id="toc-gamification-of-dses" class="nav-link" data-scroll-target="#gamification-of-dses"><span class="header-section-number">6.2.3</span> Gamification of DSEs</a></li>
+  <li><a href="#semantic-web-and-dse" id="toc-semantic-web-and-dse" class="nav-link" data-scroll-target="#semantic-web-and-dse"><span class="header-section-number">6.2.4</span> Semantic Web and DSE</a></li>
+  <li><a href="#usage-of-open-source-software" id="toc-usage-of-open-source-software" class="nav-link" data-scroll-target="#usage-of-open-source-software"><span class="header-section-number">6.2.5</span> Usage of Open Source Software</a></li>
+  </ul></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography"><span class="header-section-number">6.3</span> Bibliography</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mrchristian/nextcloud-test/edit/main/chapters/06-planning-for-the-future.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/blob/main/chapters/06-planning-for-the-future.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Planning for the future</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Abstract</p>
+<p>When considering the future of DSEs, many questions arise: In which parts of the workflow is the integration of large language models meaningful and how can this integration be used with care and responsibility, especially regarding environmental issues? What are the plans for increasing and facilitating the reuse and the sustainability of DSEs? How can the dissemination of DSEs in a broader context be increased, not limited to academic researchers? And in general: What challenges and possibilities will DSEs face in the future?</p>
+<p>Keywords</p>
+<p>Keyword1 : LLM</p>
+<p>Keyword2 : GLAMs</p>
+<p>Keyword3 : environmental impact</p>
+<p>Keyword4: teaching</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 101%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>⚙️ Technologies</strong> |</p>
+<p>Some text to describe the link between the technologies and the current part. Bullets like that:</p>
+<ul>
+<li><p>LLMs</p></li>
+<li><p>HTR</p></li>
+<li><p>Gamification</p></li>
+<li><p>Linked Open Data</p></li>
+<li><p>Semantic Web</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>🏛️ Support from third parties (infrastructure)</strong> |</p>
+<ul>
+<li><p>GAMS (Austria): support for LLM use in digital editions (CLARIAH-AT)</p></li>
+<li><p>Text+ (Germany): A consortium of the NFDI providing services and consulting regarding text- and language based research data (Editions, lexical resources, collections)</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><h3 id="faircare" data-number="6.0.1" class="anchored"><span class="header-section-number">6.0.1</span> <strong>FAIR/CARE</strong></h3>
+<ul>
+<li><p>Use of AI: Be aware of bias, check data protection and copyrights, run local or use a smaller European model</p></li>
+<li><p>Always think about Open Science : if you can find a useful free LLM, prioritize this.</p></li>
+<li><p>Think about your data : Don’t submit it to LLM if you have any restriction on it, especially if its sensitive data.</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><h3 id="checklist" data-number="6.0.2" class="anchored"><span class="header-section-number">6.0.2</span> <strong>📋 Checklist</strong></h3>
+<ul>
+<li><p>Think outside the box: Use GLAM-institutions to spread your edition</p></li>
+<li><p>Don’t be afraid of progress but use it with care: If you are thinking about using AI, also make sure to be aware of its restrictions and risks.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Don’t limit yourself : DSE is not limited to historical documents</p></li>
+<li><p>Respect data rights (especially but not only when using AI).</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="implementing-artificial-intelligence-ai-and-large-language-models-llm-into-dses" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="implementing-artificial-intelligence-ai-and-large-language-models-llm-into-dses"><span class="header-section-number">6.1</span> Implementing Artificial Intelligence (AI) and Large Language Models (LLM) into DSEs</h2>
+<section id="ideas-and-methods-for-ai-use-in-dses" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="ideas-and-methods-for-ai-use-in-dses"><span class="header-section-number">6.1.1</span> Ideas and Methods for AI Use in DSEs</h3>
+<p>AI and especially LLMs are currently changing the world of work in various regards. Academia is not immune to the changes these developments bring about. Contributions in Digital Humanities projects, journals and conference show that the community is discussing the promises, challenges and issues that come with the use of AI and LLMs for Digital Humanities in broader terms, but also for DSEs in particular (Ries et al.&nbsp;2025). Many of these works concern themselves with the comparison and validation of different LLMs for a specific (editorial) task or discussions of the human-in-the-loop, e.g., the integration of human input into the life-cycle of AI systems. Even though the results seem promising and may rise questions about the need of “classical” editorial work, yet the results are not reproducible and therefore difficult if not impossible to reuse for academic research (Hindermann et al.&nbsp;2026).</p>
+<p>In general, the integration of computational approaches in the editorial workflow is a recent trend that promises to introduce automation into the process, e.g.&nbsp;transcription phases which use pipelines for the automatic normalisation of text (Cugliana 2023). Nowadays, LLMs are also involved in post-Automatic Text Recognition (ATR) correction ((Kanerva et al.&nbsp;2025), (Thomas, Gaizauskas, and Lu 2024), (Boros et al.&nbsp;2024)), a time-consuming task when dealing with not-completely accurate recognition models. This may be observe for example with the creation of competition on LLM-Assisted Optical Character Recognition (OCR) Post-Correction for Historical Documents (see https://hipe-eval.github.io/HIPE-OCRepair-2026/). There have also been several attempts at automatic text markup, in which different LLMs were used with and/or against each other to cross-check the results. Further applications are Named Entity Recognition (NER) and commenting issues (Ries et al.&nbsp;2025). However, it is clear that a “human in the loop” is always necessary (Pollin 2025).</p>
+<p>Algorithms which are creating the outputs of (proprietary) LLMs still remain a black box. Commercial LLMs are the product of profit-oriented private companies. So, without good, sustainable open-source solutions, which are in development but still not finished, researches are giving away their research and their data sovereignty to private investors. On top of that, ethical concerns like the storage of and training with private user data, the exploitation of workers in the global south for training LLMs as well as the environmental impact of AI system, must be taken into account.</p>
+</section>
+<section id="considering-the-environmental-issues" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="considering-the-environmental-issues"><span class="header-section-number">6.1.2</span> Considering the Environmental issues</h3>
+<p>Digital editions, like every digital product, need resources. In contrast to a printed book, to keep a digital edition available, a continuous maintenance also in form of running servers is required. Digital Editions that come with a highly interactive, dynamic website (as opposed to a static site) or which are based on AI-trained models have per se a bigger enviromental footprint. When creating and disseminating a digital edition, an editor should always consider whether their edition can be produced in a more static format. This may be relevant for sustainability on various levels. Some guidelines exist that can provide insights on this topic: see for example the Endings project (https://endings.uvic.ca/principles.html ), created as set of principals, which may be followed when a DSE is created. Additional recommendations are provided by the working group Greening DH of the German DH-Association DHd ( https://dhd-greening.github.io/)<sup>.</sup></p>
+<p>Additionally, using AIs and more particularly LLMs, as we suggested, has an environmental impact. For example, LLMs running on Central Processing Units (CPU) require a substantial consumption of energy. This also means higher electricity costs. Current research considers this costly footprint and looks into solutions for “making LLM serving more sustainable” (Ding and Shi, 2024), considering the risks and benefits of LLMs for the environment (Rillig et al, 2023).</p>
+<p>With regard to current political discussion about the environmental balance of free enterprises and demands of increasing environmental taxes as well as the need for climate certificates, the question arises how long academic projects that are also in the need of resources can be kept out of this discussion. With the emerging climate crisis, the pressure to justify the “value” of (digital) humanist work may also expand to this aspect.</p>
+</section>
+</section>
+<section id="digital-editions-in-other-contexts" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="digital-editions-in-other-contexts"><span class="header-section-number">6.2</span> Digital Editions in Other Contexts</h2>
+<section id="glams-galleries-libraries-archives-and-museums-and-dse" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="glams-galleries-libraries-archives-and-museums-and-dse"><span class="header-section-number">6.2.1</span> GLAMs (Galleries, Libraries, Archives and Museums) and DSE</h3>
+<p>At the moment DSEs are an important area of work for DH, both in research and teaching. It is striking that edition projects are predominantly carried out as autonomous projects by an academic editor or group of editors. Current research has demonstrated how collections held by GLAM institutions can serve as data for various research purposes (Candela et al.&nbsp;2022) – DSE is just one potential use case to consider. But only a few GLAM institutions (as HAB (Herzog August Bibliothek) Wolfenbüttel, Austrian National Library (Österreichische Nationalbibliothek or ÖNB), Zentralbibliothek Zürich, Deutsches Literaturarchiv Marbach (DLA) and others) are currently actively working on digital editions and preparing their own collections in this form. It is to be hoped that other institutions will see digital editions as an opportunity to communicate their collections to researchers and make them accessible to a wider audience. The challenge hereby lies in the funding situation, which is not the same in all countries. While the Deutsche Forschungsgemeinschaft (DFG) or German Research Foundation, for example, also funds GLAM projects, these institutions are not eligible to apply to the Swiss National Science Foundation. Unless they cooperate with an academic editorial team, they must find other forms of funding. DSEs are a good opportunity for all the GLAMs to get in touch and work together with researchers and, in principle, can easily be implemented as cooperation projects (see for example Klug et al.&nbsp;2021).</p>
+</section>
+<section id="valorising-a-dse-outside-academia" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="valorising-a-dse-outside-academia"><span class="header-section-number">6.2.2</span> Valorising a DSE outside Academia</h3>
+<p>In order to valorise a DSE in other contexts it is important to also spread it outside the academic environment: especially for DSEs whose topic is about well-known authors or well-known works, it is possible to consider a future outside the universities. A way to do so is collaborating with public institutions (GLAM) (see above) which hold manuscripts or books and are willing to collaborate with a team of experts to create a digital edition ofmaterials they hold. In that way, once the edition is published, the cultural institution help to enlarge the range of users by involving their public: for example, the institution can display the digital edition beside the analogue document in the visitor’s path by a touchscreen device or putting a QR code near it. There are some experiments done in this way, although they are still exceptions <sup>(</sup>Lukas et al.&nbsp;2023<sup>)</sup> describe how an exhibition can be viewed as a digital edition in its own right): in Italy, for example, there is the LETS museum in Trieste which collaborated with an academic team to develop a digital edition of Umberto Saba’s Canzoniere and displayed it on a touchscreen device in the visitor’s path (Buzzoni et al.&nbsp;2024). Another good example of a DSE used outside its original context is the critical edition of the correspondence of Friedrich Engels' family (https://familie-engels-briefe.de/). The Engels House, a museum dedicated to Engels' life, uses this edition to provide visitors with a readable version of the corpus. It guides them through the correspondence with the help of critical commentaries and annotations created during the research project ( https://mr.uni-wuppertal.de/dim/projekte/website-fuer-die-medienstation-im-engelshaus-wuppertal-brief-korrespondenz).</p>
+<p>Another way to valorise DSEs could be to include them in teaching programs also in highschools. To achieve this, teachers should be trained in the correct use of DSEs to be sure that they will be able to use them in their classes. DSEs, thanks to their interactivity, can provide good training for deductive learning: for example, DSEs which provide lists of named entities connected to hyperlinks can be explored autonomously by students. In order to achieve this, it may also be useful to consider the conception and implementation of DSEs more in the training of future teachers in universities, hence better integrating DSEs in curricula.</p>
+<p>Another interesting strategy to disseminate editorial work is to offer the users of a DSE the possibility to give a feedback about the edition: in this way, it is easier to find out the features and the parts to improve for the editors and also the users feel to be part of a community in which they can somehow contribute.</p>
+</section>
+<section id="gamification-of-dses" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="gamification-of-dses"><span class="header-section-number">6.2.3</span> Gamification of DSEs</h3>
+<p>In addition to collaborating with GLAM institutions, editorial research projects continually explore alternative approaches to the entire research process. This impacts various stages, including the presentation and critical analysis of the sources themselves. Gamification, which includes both the rendition of the editorial environment as a game and the representation of the research object in a game format, is a recent and interesting practice that can bridge the gap between philology, computer science and citizen science. The mechanism of shared tasks, for example, which is typical of videogames, could be incorporated in a digital space for digital editing (Saklofske 2017).</p>
+<p>Video games may also be viewed as an alternative format for disseminating research results. For example <em>Hwaet! The Vercelli Book Saga</em>, a videogame for mobile phones based on the Vercelli Book (https://tesorodelduomovc.it/vercelli-book/) is an example how cultural heritage objects can be interpreted, explained and brought closer to the general public through an immersive experience. More examples are to be found in the final bibliography of this chapter.</p>
+</section>
+<section id="semantic-web-and-dse" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="semantic-web-and-dse"><span class="header-section-number">6.2.4</span> Semantic Web and DSE</h3>
+<p>With the help of Semantic Web Technologies, DSEs may “move from document-centric to data-centric editions” and thereby “shape the future of scholarly editions” (Spadini 2025). While many DSEs still focus on the presentation of text and documents, using Triple Stores and SPARQL Endpoint as well as encoding the data as RDF has the potential to federate and map data from different knowledge bases and query the data semantics. Especially regarding the application of computational approaches, making DSE data accessible in a machine readable and easy mappable format through RDF and Linked Open Data can prevent data silos and helps linking and combining different knowledge domains.</p>
+</section>
+<section id="usage-of-open-source-software" class="level3" data-number="6.2.5">
+<h3 data-number="6.2.5" class="anchored" data-anchor-id="usage-of-open-source-software"><span class="header-section-number">6.2.5</span> Usage of Open Source Software</h3>
+<p>The development and long-term accessibility of DSEs is increasingly dependent on the strategic use of open source software. Open source solutions offer transparency, adaptability, and community-driven innovation, all of which are essential for scholarly work that must remain verifiable and reproducible over time. Unlike proprietary systems, open source tools allow researchers to inspect, modify, and extend code according to evolving academic standards and technological requirements. This flexibility not only reduces dependency on commercial providers. Open source ecosystems also enable collaboration across institutions and disciplines by sharing infrastructures and standards that enhance interoperability. As digital editions continue to grow in complexity and scale, the adoption of open source software is key to ensure their sustainability, accessibility, and scholarly integrity. <mark></mark></p>
+</section>
+</section>
+<section id="bibliography" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">6.3</span> Bibliography</h2>
+<p>Editions cited in this chapter</p>
+<p><a href="https://familie-engels-briefe.de/" class="uri">https://familie-engels-briefe.de/</a></p>
+<p>Resources and Literature</p>
+<p>Boros, Emanuela, Maud Ehrmann, Matteo Romanello, Sven Najem-Meyer, and Frédéric Kaplan. “Post-Correction of Historical Text Transcripts with Large Language Models: An Exploratory Study.” In <em>Proceedings of the 8th Joint SIGHUM Workshop on Computational Linguistics for Cultural Heritage, Social Sciences, Humanities and Literature (LaTeCH-CLfL 2024)</em>, edited by Yuri Bizzoni, Stefania Degaetano-Ortlieb, Anna Kazantseva, and Stan Szpakowicz. Association for Computational Linguistics, 2024. https://doi.org/10.18653/v1/2024.latechclfl-1.14.</p>
+<p>Candela, Gustavo, María Dolores Sáez, MPilar Escobar Esteban, and Manuel Marco-Such. “Reusing Digital Collections from GLAM Institutions.” <em>Journal of Information Science</em> 48, no. 2 (2022): 251–67. https://doi.org/10.1177/0165551520950246.</p>
+<p>Cugliana, Elisa. <em>Coding Editions. Computational Approaches to the Editing of Pre-Modern Texts.</em> March 10, 2023. https://doi.org/10.5281/ZENODO.7715284.</p>
+<p>Ding, Yi, and Tianyao Shi. “Sustainable LLM Serving: Environmental Implications, Challenges, and Opportunities : Invited Paper.” <em>2024 IEEE 15th International Green and Sustainable Computing Conference (IGSC)</em>, November 2024, 37–38. https://doi.org/10.1109/IGSC64514.2024.00016.</p>
+<p>Fullerton, Tracy. <em>Walden, a Game EDU</em>. <em>Games + Learning + Society Conference Proceedings</em>. September 18, 2022. https://escholarship.org/uc/item/9tn6053m.</p>
+<p>Kanerva, Jenna, Cassandra Ledins, Siiri Käpyaho, and Filip Ginter. “OCR Error Post-Correction with LLMs in Historical Documents: No Free Lunches.” In <em>Proceedings of the Third Workshop on Resources and Representations for Under-Resourced Languages and Domains (RESOURCEFUL-2025)</em>, edited by Špela Arhar Holdt, Nikolai Ilinykh, Barbara Scalvini, Micaella Bruton, Iben Nyholm Debess, and Crina Madalina Tudor. University of Tartu Library, Estonia, 2025. https://aclanthology.org/2025.resourceful-1.8/.</p>
+<p>Lagarias, Antonios. “Colloque CHR 2024 : les LLM (large language models) au service des humanités numériques ?” <em>Humanités numériques</em>, no. 11 (juil 2025). <a href="https://doi.org/10.4000/1498y" class="uri">https://doi.org/10.4000/1498y</a>.</p>
+<p>Hess, Jan.&nbsp;“Von OCR Und HTR Bis NER Und LLM: Zur (Teil-)Automatisierung Digitaler Editions- Und Transformationsprozesse.” <em>Editio</em> 38, no. 1 (2024): 147–62. https://doi.org/10.1515/editio-2024-0009.</p>
+<p>Hindermann, Maximilian, Sorin Marti, Anthea Alberto, et al.&nbsp;<em>RISE-UNIBAS/Humanities_data_benchmark</em>. Zenodo, released March 24, 2026. https://doi.org/10.5281/ZENODO.19204070.</p>
+<p>Jones, Steven, and Neil Fraistat. “The MOO as an Arcade: Minimalism and Interpretive literary Games.” <em>TEXT Technology</em> 13, no. 2 (2004): 19–26. https://texttechnology.humanities.mcmaster.ca/pdf/vol13_2_02.pdf</p>
+<p>Lukas, Wolfgang, Dana Machwitz, and Bastian Politycki. “Pörtner &amp; Wühr: Spuren Des Original-Ton-Hörspiels Zwischen Wuppertal Und München: Ein Versuch, Textgenese Und Produktionsästhetik Auszustellen.” <em>Editio</em> 37, no. 1 (2023): 102–21. https://doi.org/10.1515/editio-2023-0007.</p>
+<p>Pollin, Christopher, Franz Fischer, Patrick Sahle, Martina Scholger, and Georg Vogeler. “When It Was 2024 – Generative AI in the Field of Digital Scholarly Editions.” <em>Zeitschrift Für Digitale Geisteswissenschaften</em> 10 (2025). https://doi.org/10.17175/2025_008.</p>
+<p>Ries, Thorsten, Tara Andrews, Lisa Rosendahl, et al.&nbsp;<em>Critical AI in Der Digitalen Editorik</em>. February 26, 2025. https://doi.org/10.5281/ZENODO.14943125.</p>
+<p>Rillig, Matthias C., Marlene Ågerstrand, Mohan Bi, Kenneth A. Gould, and Uli Sauerland. “Risks and Benefits of Large Language Models for the Environment.” <em>Environmental Science &amp; Technology</em> 57, no. 9 (2023): 3464–66. https://doi.org/10.1021/acs.est.3c01106.</p>
+<p>Saklofske, Jon, Nina Belojevic, Alex Christie, Sonja Sapach, John Simpson, and The INKE Research Team. “Gaming the Edition: Modelling Scholarly Editions through Videogame Frameworks.” <em>Digital Literary Studies</em> 1, no. 1 (2016). https://doi.org/10.18113/P8dls1159703.</p>
+<p>Thomas, Alan, Robert Gaizauskas, and Haiping Lu. “Leveraging LLMs for Post-OCR Correction of Historical Newspapers.” In <em>Proceedings of the Third Workshop on Language Technologies for Historical and Ancient Languages (LT4HALA) @ LREC-COLING-2024</em>, edited by Rachele Sprugnoli and Marco Passarotti. ELRA and ICCL, 2024. https://aclanthology.org/2024.lt4hala-1.14/.</p>
+<p>The Endings Project Team. “The Endings Project: The Endings Project | Le Projet Endings.” Accessed March 30, 2026. <a href="https://endings.uvic.ca/%5bpage%20file%20name%20will%20be%20inserted%20here%5d">https://endings.uvic.ca/</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mrchristian\.github\.io\/nextcloud-test\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/05-long-term-perspective.html" class="pagination-link" aria-label="Long term perspective on your edition">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long term perspective on your edition</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/07-appendix.html" class="pagination-link" aria-label="Appendix">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mrchristian/nextcloud-test/edit/main/chapters/06-planning-for-the-future.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/blob/main/chapters/06-planning-for-the-future.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

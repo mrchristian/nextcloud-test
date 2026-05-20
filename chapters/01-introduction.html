@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Introduction: Why You Really Should Read This Book – Nextcloud Test</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/02-premises.html" rel="next">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-87b7f55de2e0c9887283481eb31a794c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-introduction.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction: Why You Really Should Read This Book</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Nextcloud Test</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/mrchristian/nextcloud-test" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Nextcloud-Test.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Nextcloud-Test.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-introduction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction: Why You Really Should Read This Book</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-premises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Premises: Key Considerations Before Starting Your DSE</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-project-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Design: Planning the Editing Journey</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-implementation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Implementation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-long-term-perspective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long term perspective on your edition</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-planning-for-the-future.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Planning for the future</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-benchmark-manual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Manual</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-benchmark-gemini.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Gemini</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-benchmark-claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Claude</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-handbook-fitted-for-beginners" id="toc-a-handbook-fitted-for-beginners" class="nav-link active" data-scroll-target="#a-handbook-fitted-for-beginners"><span class="header-section-number">1.1</span> A Handbook Fitted For Beginners</a>
+  <ul class="collapse">
+  <li><a href="#the-aim-of-this-book" id="toc-the-aim-of-this-book" class="nav-link" data-scroll-target="#the-aim-of-this-book"><span class="header-section-number">1.1.1</span> The Aim of This Book</a></li>
+  <li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book"><span class="header-section-number">1.1.2</span> How To Use This Book</a></li>
+  </ul></li>
+  <li><a href="#digital-scholarly-edition-what-does-it-mean" id="toc-digital-scholarly-edition-what-does-it-mean" class="nav-link" data-scroll-target="#digital-scholarly-edition-what-does-it-mean"><span class="header-section-number">1.2</span> Digital Scholarly Edition: What Does It Mean?</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-scholarly-edition" id="toc-what-is-a-scholarly-edition" class="nav-link" data-scroll-target="#what-is-a-scholarly-edition"><span class="header-section-number">1.2.1</span> What is a Scholarly Edition?</a></li>
+  <li><a href="#what-is-a-digital-scholarly-edition" id="toc-what-is-a-digital-scholarly-edition" class="nav-link" data-scroll-target="#what-is-a-digital-scholarly-edition"><span class="header-section-number">1.2.2</span> What is a Digital Scholarly Edition?</a></li>
+  <li><a href="#typology-of-digital-scholarly-editions" id="toc-typology-of-digital-scholarly-editions" class="nav-link" data-scroll-target="#typology-of-digital-scholarly-editions"><span class="header-section-number">1.2.3</span> Typology of Digital Scholarly Editions</a></li>
+  </ul></li>
+  <li><a href="#why-go-digital-and-what-does-it-change" id="toc-why-go-digital-and-what-does-it-change" class="nav-link" data-scroll-target="#why-go-digital-and-what-does-it-change"><span class="header-section-number">1.3</span> Why Go Digital and What Does It Change?</a>
+  <ul class="collapse">
+  <li><a href="#the-computer-is-a-binary-machine" id="toc-the-computer-is-a-binary-machine" class="nav-link" data-scroll-target="#the-computer-is-a-binary-machine"><span class="header-section-number">1.3.1</span> The Computer is a Binary Machine</a></li>
+  <li><a href="#what-is-the-computers-task-in-digital-scholarly-editing" id="toc-what-is-the-computers-task-in-digital-scholarly-editing" class="nav-link" data-scroll-target="#what-is-the-computers-task-in-digital-scholarly-editing"><span class="header-section-number">1.3.2</span> What is the Computer’s Task in Digital Scholarly Editing?</a></li>
+  <li><a href="#the-computers-output-and-research-questions" id="toc-the-computers-output-and-research-questions" class="nav-link" data-scroll-target="#the-computers-output-and-research-questions"><span class="header-section-number">1.3.3</span> The Computer’s Output and Research Questions</a></li>
+  </ul></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography"><span class="header-section-number">1.4</span> Bibliography</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mrchristian/nextcloud-test/edit/main/chapters/01-introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/blob/main/chapters/01-introduction.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction: Why You Really Should Read This Book</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This introductory chapter begins by outlining key definitions of digital scholarly editions (DSE) and highlighting how they differ from their printed counterparts. It then surveys the main typologies of digital scholarly editions, offering an overview of their diverse forms and approaches. The final section turns to a fundamental distinction between natural and programming languages, exploring how this difference shapes the practices and possibilities of digital editing.</p>
+<p>Keywords</p>
+<p>Keyword1: Digital scholarly edition</p>
+<p>Keyword2: Text encoding</p>
+<p>Keyword3: Editorial approaches</p>
+<p>Keyword4: Digital editing practices</p>
+<p>Keyword5: Critical representation</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>⚙️ Technologies relevant to this chapter</strong> |</p>
+<ul>
+<li><p>XML / TEI: structuring and encoding texts</p></li>
+<li><p>Markup languages (i.e.&nbsp;HTML, XML): languages to describe structure and presentation of documents</p></li>
+<li><p>Databases: for storing and organising data</p></li>
+<li><p>Web technologies: to build interface and navigation</p></li>
+<li><p>Version control (i.e.&nbsp;Git): tracking changes and collaboration</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 101%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>🏛️ Support from 3rd parties (infrastructure)</strong> |</p>
+<ul>
+<li><p>Infrastructures: DARIAH, CLARIN, national or institutional infrastructure services</p></li>
+<li><p>Libraries and repositories (like Zenodo, your institution): DOI, long term access</p></li>
+<li><p>Community: guidelines, exchange, best practices</p></li>
+</ul>
+<!-- -->
+<ul>
+<li>TEI-community: https://tei-c.org/support/</li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><h3 id="faircare-principles-relevant-to-this-chapter" class="unnumbered anchored"><strong>FAIR/CARE principles relevant to this chapter</strong></h3>
+<ul>
+<li><p>Findable: metadata, clear titles, identifiers</p></li>
+<li><p>Accessible: open access where possible, stable URLs</p></li>
+<li><p>Interoperable: use standards like XML / TEI</p></li>
+<li><p>Reusable: clear licences, downloadable data, transparent methods</p></li>
+<li><p>CARE: consider collective benefit, authority to control, responsibility, and ethics, especially when working with sensitive or culturally specific data</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><h3 id="checklist-ch01" class="unnumbered anchored"><strong>📋 Checklist</strong></h3>
+<ul>
+<li><p>Do not panic.</p></li>
+<li><p>Do not work in isolation: consult the community.</p></li>
+<li><p>The necessary resources are available; this book will guide you to them.</p></li>
+<li><p>Many people have worked on digital scholarly editions before; you can benefit from their experience.</p></li>
+<li><p>There is no single “correct” way to create a digital scholarly edition.</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="a-handbook-fitted-for-beginners" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="a-handbook-fitted-for-beginners"><span class="header-section-number">1.1</span> A Handbook Fitted For Beginners</h2>
+<p>This is a book for anyone wanting to get acquainted with digital scholarly editions. This chapter gives an overview on the aim of the book and how it came to life. It also explains what DSE are, what different kinds of DSE exist, and what are its advantages.</p>
+<section id="the-aim-of-this-book" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="the-aim-of-this-book"><span class="header-section-number">1.1.1</span> The Aim of This Book</h3>
+<p>Is this edition reliable? Who are the editors? How do I cite this web resource? How can I be sure that this digital edition will still be available in two,three, five or fifty years when I want to consult it again? Can I tell my students to use this web page? Will my professor give me a bad grade if I refer to this online information? – We ask ourselves these questions all the time, with the slight sense that we should actually know better and be able to assess the quality of online resources based on criteria just as solid and recognised as those for print material. But the truth is: this is not the case. While there are online resources whose quality is indeed hard to assess, there is a type of online resource that users often find difficult to grasp, despite the fact that it follows rather strict quality criteria and can therefore be evaluated and, if of sufficient quality, cited: digital scholarly editions.</p>
+<p>This book is a collective endeavour, written by digital edition professionals with diverse expertise. Some are technical specialists, originally trained in computer science; others are scholarly editors, and most combine both. We come from diverse institutional and geographical contexts, which have influenced the selection of examples discussed throughout the volume: while we aim to offer an international perspective, the contextualisation we provide reflects the specificities of certain areas in Europe (primarily Germany, Switzerland, Austria, France, and Italy). The goal of this book is to provide a guide for anyone considering creating a digital scholarly edition within the scope of their research project, as well as support for users and reviewers of digital scholarly editions. We also wish to address students encountering digital scholarly editions for the first time, as well as readers seeking to consult specific aspects of the field.</p>
+<p>[…]</p>
+<p>First, you do not need to be a computer scientist to build or understand digital editions. This handbook provides a basic understanding of DSE—whether you want to build one, learn about them, or explore specific aspects in more depth—and offers the knowledge, insights, and vocabulary needed to communicate effectively with relevant experts (digital humanists, information scientists, IT staff, memory institutions...), to articulate your goals and needs, and to make informed decisions together.</p>
+<p>Second, there is a growing ecosystem of tools designed to facilitate entry into this world, developed by and for editors in the humanities and social sciences. They are rooted in scholarly practices and have evolved alongside theoretical models. Understanding these foundations is essential for shaping your own approach as well as for learning and exploration.</p>
+<p>Third, digital processes require scholarly expertise. Data is far from neutral: it reflects a situated perspective and is shaped by selection, modelling, and interpretation. Editors do not need to master every technical step or carry out all tasks themselves, but they do need to stay involved throughout the process, discuss and understand technical choices, and acknowledge their implications at every stage of the project.</p>
+<p>Finally, note that the field is rapidly evolving: tools, standards, and practices continue to develop. This book is intended to be a truely living handbook that will be updated periodically to reflect these ongoing changes.</p>
+</section>
+<section id="how-to-use-this-book" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="how-to-use-this-book"><span class="header-section-number">1.1.2</span> How To Use This Book</h3>
+<p>This book is structured around the stages of the project life cycle of a digital scholarly edition. It can be read linearly, following the chapters. However, some key elements are so fundamental that they can also serve as entry points in their own right. For this reason, general orientation is also provided in all chapters intended to facilitate transversal readings of the book. They come in the form of:</p>
+<ul>
+<li><p>Abstracts giving an overview of each chapter and sub-chapter.</p></li>
+<li><p>Focus boxes on:</p>
+<ul>
+<li><p>technologies relevant to the context of each chapter,</p></li>
+<li><p>infrastructures whose support or input may be useful in the given context,</p></li>
+<li><p>how to ensure that data is FAIR (Findable, Accessible, Interoperable, Reusable) and CARE (Collective benefit, Authority to control, Responsibility, Ethics) at a given point in the editing process,</p></li>
+<li><p>elements that require special attention in the project phase on which the respective chapters focus on.</p></li>
+</ul></li>
+</ul>
+<p>A glossary of key concepts and terms also provides an additional point of access to the book, allowing readers to navigate it through its main/essential vocabulary.</p>
+</section>
+</section>
+<section id="digital-scholarly-edition-what-does-it-mean" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="digital-scholarly-edition-what-does-it-mean"><span class="header-section-number">1.2</span> Digital Scholarly Edition: What Does It Mean?</h2>
+<p>In this section, you will find a basic definition of what constitutes a digital scholarly edition, outlining its key characteristics and scope. It explains how digital editions differ from printed editions, particularly in terms of structure, functionality, and methodological implications. Finally, it introduces some of the main types of digital scholarly editions, highlighting their distinctive features and uses.</p>
+<p>Keyword1: Typologies of scholary editions</p>
+<p>Keyword2: Key characteristics</p>
+<p>Keyword3: Methodology</p>
+<section id="what-is-a-scholarly-edition" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="what-is-a-scholarly-edition"><span class="header-section-number">1.2.1</span> What is a Scholarly Edition?</h3>
+<p>An edition is a published representation of a document in a medium other than the original document, and whose stable form allows the scientific community to refer to it. A scholarly edition (SE) goes beyond this task in many respects.</p>
+<p>According to Patrick Sahle’s definition, “a scholarly edition is the critical representation of historic documents that often stand for a certain text or work” (Driscoll-Pierazzo 2016, 26). The expression <em>critical representation</em> refers to the transformation of an original document into an edition. Secondly, in this context, <em>critical</em> means that in order to provide a critical edition, an editor has to make informed choices regarding the selection, transcription, and presentation of sources, and to justify them. These choices and how they are presented determine the different types of digital scholarly editions (<mark>➚</mark> <strong>1.2.2. What is a Digital Scholarly Edition?</strong>).</p>
+<p>Now, what is the difference between a scholarly edition and a <em>digital</em> scholarly edition? At first glance, one might say that both follow the same definition, and what defines an SE is also relevant for a DSE. However, it is important to go further and, above all, to not assume that a DSE is just the digitised version of the SE: digitality involves more than a change of medium.</p>
+<p>A key difference lies in the possibilities offered by the digital environment. One of the main limitations of a printed edition apart/aside from its linearity is space, whereas in the digital context this physical constraint is lifted. Though the digitality enables editors to present texts in multiple perspectives. Further it becomes possible to create hyperlinks to other online resources, to include digital facsimiles of the source documents, to connect different digital editions and related entities, and to support collaborative work on this basis. Moreover, digital scholarly editions can offer multiple access points to texts and documents, through visualisations as well as search functionalities, registers, and structured entry points such as archival folders. This range of approaches, brought together within a single DSE, relies on a specific methodology in structuring and encoding documents (<mark>➚</mark> <strong>4. Implementation</strong> &amp; <mark>➚</mark> <strong>5. Long Term Perspective on Your Edition</strong> for more detail).</p>
+</section>
+<section id="what-is-a-digital-scholarly-edition" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="what-is-a-digital-scholarly-edition"><span class="header-section-number">1.2.2</span> What is a Digital Scholarly Edition?</h3>
+<p>A digital scholarly edition is a distinct form of presenting sources that, first, goes beyond the technical limitations of an analogue object, while at the same time having to address issues of sustainability, particularly with regard to active data provision and data presentation layers that require ongoing maintenance, regardless of the current funding situation; and second constitutes a medium in its own right, characterised by transparency, multimediality, openness and intertextuality between different types of digital information.</p>
+<p>As noted by Patrick Sahle, with the adoption of digital methods and the shift towards more fluid forms of publication, the edition ceases to be a fixed product and becomes an open-ended process (Driscoll-Pierazzo 2016, 29). In a digital working environment—that is both the environment in which the edition is produced (i.e.&nbsp;tools for transcription, encoding, and data modelling) and the environment in which it is presented (i.e.&nbsp;the user interface)—it becomes possible to revise and update an edition over time (as opposed to a printed book). However it is also possible, and often necessary, to publish an edition at a stage when it could or should still be further expanded. Deciding when an edition is sufficiently stable to be released is therefore a key responsibility of the editorial team. Here, stability refers both to the content (a version that can be cited and relied upon) and to the technical framework that ensures its accessibility.</p>
+<p>Many DSE projects aim for an optimal degree of stability. This stability makes it possible for the work to be cited, peer-reviewed, and integrated into academic debates, scientific publications, and other forms of scholarly communication. The scholarly editing of a text constitutes a scientific output in its own right. By producing an edition, editors provide readers with a stable and authoritative version of a source document that can be cited as such. The principle of citability—common to both print and digital media—is a fundamental pillar of scholarly publishing and academic dialogue. This principle entails ensuring long-term access to that version of the text, whether through a web interface (dynamic or static) or via a set of clearly identified files made available for download on a website or in a data repository.</p>
+<p>As in print culture, the digital environment must guarantee access to successive versions of the edited text. In doing so, it adopts from the print tradition a structured way of representing the progressive development of knowledge about the text.</p>
+<p>A DSE can be produced for any kind of media: text, images, video, sound recordings, etc. Note that, independently of the nature of the source material, a DSE often goes beyond the strictly textual framework and becomes a multimedia ecosystem. It can combine transcriptions, facsimiles of documents or other artefacts (in image format), sound or video recordings, and cartographic representations within a single interface, and it can thus offer a multisensory and multidimensional understanding of an object.</p>
+<p>Like print publications, digital publications are composite objects. While they share certain elements with print editions, others are specific to digital media. They consist of:</p>
+<ul>
+<li><p>the potential addition of non-textual media (sound, video, etc.);</p></li>
+<li><p>a presentation (documentation) of the digitisation process and its editorial challenges;</p></li>
+<li><p>a multifaceted consultation interface;</p></li>
+<li><p>the potential addition of hyperlinks to online resources.</p></li>
+</ul>
+<p>The implementation of these elements involves scholarly and technical choices that will be discussed in the following chapters.</p>
+</section>
+<section id="typology-of-digital-scholarly-editions" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="typology-of-digital-scholarly-editions"><span class="header-section-number">1.2.3</span> Typology of Digital Scholarly Editions</h3>
+<p>When preparing a digital edition, editors face a series of questions: What is the aim of my edition? From which perspective are the documents and media analysed and represented? What are the benefits for its users? What are likely and unlikely user scenarios? In which context is this particular edition created and in which context is it expected to be used? (<mark>➚</mark> <strong>2. Basic Premises</strong> for a more systematic approach.)</p>
+<p>The answers to these questions have a significant influence on the form of the edition. As in any research process, creating an edition reflects the academic training, disciplinary background, and research interests of the editor, as well as the scope and objectives of the project.</p>
+<p>Various typologies of DSEs have been proposed. Usually, we can rely on a fundamental distinction between two approaches to the documents that are edited. The first approach is the source edition in which historical documents are presented: terms such as “Prototype-Edition”, “künstliche Edition”, “Archive-Edition”/“Editorialised archives” have become established for this type of edition. The second appraoch is characterised by the presentation of detailed annotations of and comments to the documents . The academic tradition refers to such an edition as a “historical-critical edition” (see https://www.digitale-edition.at/o:konde.93).</p>
+<p>However, a digital edition can evolve from one type to the other, depending on the trajectory of the project, the funding, or new and evolving needs from the scholarly community (Galleron et al.&nbsp;2018).</p>
+<p>Concrete examples include:</p>
+<ul>
+<li>Text-only format</li>
+</ul>
+<p>A text-only edition is one in which the digital presentation does not displaydigital facsimiles but only editorial transcription. This type of edition is commonly found in online digital libraries, where digital scholarly editions in text-only format can be selected based on specific criteria (author, period, genre). To give some examples: Library of the Churchfathers; Encyclopédie méthodique Panckoucke; The OBVIL corpora; The editions of the Norwegian Language and Literature Society.</p>
+<ul>
+<li>Digital facsimile with a transcription</li>
+</ul>
+<p>Here, the analogue documents are digitised and transcribed according to predefined rules. A diplomatic edition, for instance, provides information on all elements appearing on the document (erasures, marks, marginalia,...). Textual genetic editions document all revisions and corrections from the point of view of the writing process, while diplomatic editions provide information on all elements that appear on the document, and include the topology of the original document itself.</p>
+<p>The possibility to consult the digital facsimile of a manuscript is highly relevant for palaeographers, philologists or anyone interested in the material aspects of the documents. Moreover, it makes the editorial work more transparent because users can compare the facsimile with the editorial transcription.</p>
+<p>Some countries provide overviews about all manuscripts collected in their national realm, e.g.&nbsp;handschriftenportal.de (Germany), manuscripta.at (Austria), e-codices, e-manuscripta.ch (Switzerland); manus online (Italy). In other countries, it is often necessary to know which institution holds the manuscripts of interest. Several Italian libraries, for example, maintain their own manuscript digital libraries, such as the DigiVatLib https://digi.vatlib.it/mss/,</p>
+<p>As in the case of manuscripts, transcriptions may also be produced for printed works, depending on the period and the author. For a seventeenth-century French source, one may refer, for example, to the Corpus Descartes, which provides transcriptions of the original editions as validated by the philosopher himself: https://www.unicaen.fr/puc/sources/prodescartes/sommaire.html.</p>
+<ul>
+<li>Synoptic editions</li>
+</ul>
+<blockquote class="blockquote">
+<p><mark><strong>XXX ADD SCREENSHOT OF A SYNOPTIC EDITION to make clear how it can help comparing variants XXXX —&gt; here an example:</strong> Handschriftensynopse: Edition - Der arme Heinrich</mark></p>
+</blockquote>
+<p>Synoptic editions are editions that visually and programmatically juxtapose two or more versions of a text. The notion of synopsis, meaning a “comprehensive view”, is particularly useful for the comparative study of textual traditions in which variation is a key feature, like in classical antiquity and biblical studies.</p>
+</section>
+</section>
+<section id="why-go-digital-and-what-does-it-change" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="why-go-digital-and-what-does-it-change"><span class="header-section-number">1.3</span> Why Go Digital and What Does It Change?</h2>
+<p>This section explains how computers process text through structured instructions rather than interpretation. It introduces modelling as the key process for translating scholarly analysis into machine-readable formats. It highlights the connection between technical choices and research questions, as well as the possibilities of dynamic visualisations and multiple access paths.</p>
+<p><strong>Keywords</strong>:</p>
+<p>Keyword1: Modelling</p>
+<p>Keyword2: Research questions</p>
+<p>Keyword3: Computer languages</p>
+<section id="the-computer-is-a-binary-machine" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="the-computer-is-a-binary-machine"><span class="header-section-number">1.3.1</span> The Computer is a Binary Machine</h3>
+<p>A computer does not read or interpret texts in the way a human reader does. Its language is that of bits: fundamentally, it processes nothing other than 1s and 0s. It does not “speak” or “read” natural language. When humans read a sentence or have a conversation, they rely on context and prior knowledge to understand the meaning, whereas computers only follow instructions. For this reason, computers need instructions that are precise and unambiguous, otherwise, they cannot process them: they will either produce an error or follow the instruction in an unexpected way.</p>
+</section>
+<section id="what-is-the-computers-task-in-digital-scholarly-editing" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="what-is-the-computers-task-in-digital-scholarly-editing"><span class="header-section-number">1.3.2</span> What is the Computer’s Task in Digital Scholarly Editing?</h3>
+<p>When producing a digital scholarly edition, editors must translate their scholarly interpretation into a structured form that a computer can process. This activity is called “modelling.” At its core, a digital scholarly edition consists of structured data and the ways in which this data is presented and explored.</p>
+<p>Modelling a digital scholarly edition is the intellectual and technical operation of translating the editor’s perspective on a work (its variants, deletions, named entities etc.), guided by explicit editorial principles and guidelines, into a structured computer language (the most widely used standard being XML-TEI) (<mark>➚</mark> <strong>3.2. Defining and Structuring the Data</strong>). Such standards are not only technical conventions, but also the result of shared practices and agreements within scholarly communities.</p>
+<p>Unlike simple digitisation (i.e.&nbsp;the reproduction of a document as an image or plain text without structural encoding), modelling relies on an encoding protocol that makes the content machine-readable, thus transforming a static document into structured and interoperable data. This process constitutes a key scholarly dimension of the edition, as it makes the editor's choices explicit and traceable. In this sense, modelling does not merely encode documents, but makes interpretative decisions visible and open to discussion. For this reason, research questions must be closely connected to computational choices. Using web standards, protocols, and widely adopted formats helps ensure the sustainability and circulation of both the underlying data (the resource) and its presentation as a digital scholarly edition. This distinction between the data layer and the presentation layer is fundamental, as it allows the same data to be reused, reinterpreted, and displayed in different ways over time.</p>
+</section>
+<section id="the-computers-output-and-research-questions" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="the-computers-output-and-research-questions"><span class="header-section-number">1.3.3</span> The Computer’s Output and Research Questions</h3>
+<p>The intellectual and technical choices made by editors (encoding formats, data modelling, web design) are neither arbitrary nor neutral. They shape how research questions can be formulated and explored based on a corpus. Digital scholarly editing is therefore not only a means of presenting results, but a research process in itself. The editor’s research questions inform specific technical choices, but the results produced through computational processing can, in turn, lead to clarification, reformulation, or refinement of the research questions.</p>
+<p>Through modelling, digital publishing transforms static documents into dynamic material that a computer can render in different ways, for example through visualisations such as timelines, statistics, textometric analyses, etc. (<mark>➚</mark> <strong>4. Implementation</strong>). Unlike print work, which typically presents a single, linear view, digital environments allow for multiple perspectives on the same material. This is also reflected in navigation structures, such as synoptic views or faceted browsing.</p>
+</section>
+</section>
+<section id="bibliography" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">1.4</span> Bibliography</h2>
+<p>Editions cited in this chapter</p>
+<ul>
+<li><p><a href="https://www.unicaen.fr/puc/sources/prodescartes/">Corpus Descartes</a></p></li>
+<li><p><a href="https://digi.ub.uni-heidelberg.de/diglit/synopsis/ArmerHeinrich">Der arme Heinrich</a></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><a href="https://encyclopedie.uchicago.edu/encyclop%C3%A9die-m%C3%A9thodique">Encyclopédie méthodique (Panckoucke)</a></li>
+</ul>
+<!-- -->
+<ul>
+<li>Bibliothek der Kirchenväter/Library of the Church Fathers</li>
+</ul>
+<!-- -->
+<ul>
+<li><p><a href="https://github.com/orgs/OBVIL/repositories">OBVIL corpora</a></p></li>
+<li><p>Bokselskap – Editions of the Norwegian Language and Literature Society</p></li>
+</ul>
+<p>Resources and literature</p>
+<p>Driscoll, Matthew James, and Elena Pierazzo. <em>Digital Scholarly Editing: Theories and Practices</em>. Open Book Publishers, 2016. <a href="https://doi.org/10.11647/obp.0095" class="uri">https://doi.org/10.11647/obp.0095</a>.</p>
+<p>Galleron, Ioana, Marie-Luce Demonet, Cécile Meynard, et al.&nbsp;<em>Les publications numériques de corpus d’auteurs – Guide de travail, grille d’analyse et recommandations, consortium CAHIER</em>. Consortium CAHIER, 2018. https://cahier.hypotheses.org/guides/les-publications-numeriques-de-corpus-dauteurs.</p>
+<p>Pierazzo, Elena. “Digital Documentary Editions and the Others.” <em>Scholarly Editing</em> 35 (2014). https://scholarlyediting.org/2014/essays/essay.pierazzo.html.</p>
+<p>Reiling, Jesko, and Sharon Rom. “Digitale Editionen als Forschungsservice: Pilotprojekt der ZB Zürich zu neuen Formen der digitalen Bestandspräsentation.” <em>o-bib. Das offene Bibliotheksjournal / Herausgeber VDB</em> 12, no. 4 (2025): 1–5. https://doi.org/10.5282/o-bib/6184.</p>
+<p>Sahle, Patrick. “What Is a Scholarly Digital Edition?” In <em>Digital Scholarly Editing</em>, edited by Matthew James Driscoll and Elena Pierazzo. Open Book Publisher, n.d. https://books.openedition.org/obp/3397.</p>
+<p>Vogeler, Georg. “Die konzentrische Edition. Auswertungspotentiale von digitaler Tiefenerschließung, Proto-Editionen, künstlichen Editionen und digitalen Volleditionen der Reichshofratsprotokolle.” In <em>Der kaiserliche Reichshofrat</em>, 1st ed., edited by Ulrich Rasche and Tobias Schenk. Böhlau Verlag Köln, 2025. https://doi.org/10.7788/9783412530563.489.</p>
+<p>D02 Basic premises</p>
+<p>To do:</p>
+<ul>
+<li>General: Check, if the references to the Appendix are right: Does the appendix have the promised information?</li>
+</ul>
+<!-- -->
+<ul>
+<li><p><mark>1.2.2 Institutions: give details on national support institutions other than Germany</mark> == this comes up at several places! If so: what countries/cultural-linguistic regions do we want to represent? In the group represented: France, Italy, Switzerland<mark></mark></p></li>
+<li><p>1.3.2 Link to DMP-section is still missing</p></li>
+<li><p>Mareike: I proofread the chapter, harmonised, and corrected the English; I also added some comments. There still needs some work to be done on the bibliography. The linking to sources is not consistent.</p></li>
+<li><p>== this chapter is clearly for those who want to create a DSE, not for students; I do not think it matters, but maybe we can add a remark somewhere.</p></li>
+<li><p>I suggest adding a box at the end with “cited editions” (and do that throughout the book).</p></li>
+<li><p>RE: target audience/readers: much of the issues come down to choice of language, i.e.&nbsp;terminology, lingo, etc. and density of information. I think we cannot compromise on including undergraduate students in our target audience – than we have to use a very different language and add many more explanations which will make the book too verbose and repetetive for our other reader groups. But I think we should see to explaining or removing lingo and a certain “techy” terminology which only experts and long time practitioners are familiar with (i.e.: us).</p></li>
+<li></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mrchristian\.github\.io\/nextcloud-test\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/02-premises.html" class="pagination-link" aria-label="Premises: Key Considerations Before Starting Your DSE">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Premises: Key Considerations Before Starting Your DSE</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mrchristian/nextcloud-test/edit/main/chapters/01-introduction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/blob/main/chapters/01-introduction.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
