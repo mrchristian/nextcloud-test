@@ -22,4 +22,15 @@ quarto render
 
 ## Publish
 
-Push to `main`. GitHub Actions renders and deploys to the `gh-pages` branch automatically.
+The site is published to **https://mrchristian.github.io/nextcloud-test/** via GitHub Actions.
+
+**How it works:**
+
+- `.github/workflows/publish.yml` triggers on every push to `main`
+- The `build` job runs `quarto render`, producing the book in `_book/`, then uploads it as a GitHub Pages artifact via `actions/upload-pages-artifact`
+- The `deploy` job publishes the artifact to GitHub Pages via `actions/deploy-pages`
+
+**Required repo setting (one-time):**  
+Go to **Settings → Pages → Build and deployment → Source** and select **"GitHub Actions"**.
+
+Push to `main` after that and the site deploys automatically.
