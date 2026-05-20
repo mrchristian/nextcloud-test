@@ -1,0 +1,31 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Nextcloud Test"
+  author: "Author Name"
+  date: today
+  chapters:
+    - index.qmd
+    - chapters/01-introduction.qmd
+    - chapters/02-premises.qmd
+    - chapters/03-project-design.qmd
+    - chapters/04-implementation.qmd
+    - chapters/05-long-term-perspective.qmd
+    - chapters/06-planning-for-the-future.qmd
+    - chapters/07-appendix.qmd
+    - chapters/08-benchmark-manual.qmd
+    - chapters/09-benchmark-gemini.qmd
+    - chapters/10-benchmark-claude.qmd
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    cover-image: cover.png
+  pdf:
+    documentclass: scrreprt
+    keep-tex: false
+  epub:
+    cover-image: cover.png
