@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.54">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Implementation – Nextcloud Test</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/05-long-term-perspective.html" rel="next">
+<link href="../chapters/03-project-design.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04-implementation.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Implementation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Nextcloud Test</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/mrchristian/nextcloud-test" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Nextcloud-Test.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Nextcloud-Test.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction: Why You Really Should Read This Book</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-premises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Premises: Key Considerations Before Starting Your DSE</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-project-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Design: Planning the Editing Journey</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-implementation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Implementation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-long-term-perspective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long term perspective on your edition</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-planning-for-the-future.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Planning for the future</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-benchmark-manual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Manual</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-benchmark-gemini.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Gemini</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-benchmark-claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmark Claude</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#from-primary-sources-to-digital-data-4.1." id="toc-from-primary-sources-to-digital-data-4.1." class="nav-link active" data-scroll-target="#from-primary-sources-to-digital-data-4.1."><span class="header-section-number">4.1</span> From primary sources to digital data (4.1.)</a>
+  <ul class="collapse">
+  <li><a href="#collecting-and-digitising" id="toc-collecting-and-digitising" class="nav-link" data-scroll-target="#collecting-and-digitising"><span class="header-section-number">4.1.1</span> Collecting and digitising</a></li>
+  <li><a href="#transcribing-textual-data" id="toc-transcribing-textual-data" class="nav-link" data-scroll-target="#transcribing-textual-data"><span class="header-section-number">4.1.2</span> Transcribing textual data</a></li>
+  <li><a href="#encoding-textual-data" id="toc-encoding-textual-data" class="nav-link" data-scroll-target="#encoding-textual-data"><span class="header-section-number">4.1.3</span> Encoding textual data</a></li>
+  <li><a href="#working-with-non-textual-objects" id="toc-working-with-non-textual-objects" class="nav-link" data-scroll-target="#working-with-non-textual-objects"><span class="header-section-number">4.1.4</span> Working with non-textual objects</a></li>
+  </ul></li>
+  <li><a href="#the-many-lives-of-the-data-format-diversity" id="toc-the-many-lives-of-the-data-format-diversity" class="nav-link" data-scroll-target="#the-many-lives-of-the-data-format-diversity"><span class="header-section-number">4.2</span> The Many Lives of the Data / Format Diversity</a>
+  <ul class="collapse">
+  <li><a href="#metadata-formats" id="toc-metadata-formats" class="nav-link" data-scroll-target="#metadata-formats"><span class="header-section-number">4.2.1</span> Metadata formats</a></li>
+  <li><a href="#image-formats-in-dses" id="toc-image-formats-in-dses" class="nav-link" data-scroll-target="#image-formats-in-dses"><span class="header-section-number">4.2.2</span> Image formats in DSEs</a></li>
+  <li><a href="#the-textual-documents-plain-text-docxodt-markdown-latex-xml-alto-xml-page" id="toc-the-textual-documents-plain-text-docxodt-markdown-latex-xml-alto-xml-page" class="nav-link" data-scroll-target="#the-textual-documents-plain-text-docxodt-markdown-latex-xml-alto-xml-page"><span class="header-section-number">4.2.3</span> The textual documents: Plain Text, DOCX/ODT, Markdown, LaTex, XML ALTO, XML PAGE</a></li>
+  <li><a href="#deployment-and-visualisation-html-with-css-pdf-csv-gis" id="toc-deployment-and-visualisation-html-with-css-pdf-csv-gis" class="nav-link" data-scroll-target="#deployment-and-visualisation-html-with-css-pdf-csv-gis"><span class="header-section-number">4.2.4</span> Deployment and Visualisation: HTML with CSS, PDF, CSV, GIS</a></li>
+  </ul></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography"><span class="header-section-number">4.3</span> Bibliography</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mrchristian/nextcloud-test/edit/main/chapters/04-implementation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/blob/main/chapters/04-implementation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Implementation</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Digital scholarly editions are created in a process. The first part of this chapter covers the steps transforming a non-digital source into a digital object, which also includes the production of metadata and the online release of the edition, for example as a web application. The second part is devoted to formats for encoding your data. The focus is on texts as primary sources, but some hints to other objects are given in a dedicated section.</p>
+<p>Keywords</p>
+<p>Keyword1: Digitisation</p>
+<p>Keyword2: Data Modelling</p>
+<p>Keyword3: Visualisation</p>
+<p>Keyword4: Workflow</p>
+<p>Keyword5: Format</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>⚙️ Technologies</strong> |</p>
+<p>DSE as digital products are based on a variety of technologies. The typical editing process involves the use of tools for:</p>
+<ul>
+<li><p>Text Recognition</p></li>
+<li><p>Imaging</p></li>
+<li><p>Encoding and Annotation</p></li>
+<li><p>Web Development</p></li>
+<li><p>Editors like Oxygen XML Editor, LEAf-Writer, VSCode, XMLMind XML Editor</p></li>
+<li><p>Open Refine for data reconciliation with external databases such as Wikidata or GND services</p></li>
+<li><p>Controlled vocabularies, authority files, ontologies</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><p><strong>🏛️ Support from 3rd parties (infrastructure)</strong> |</p>
+<ul>
+<li><p>National initiatives like Text+, DARIAH, ...</p></li>
+<li><p>Tools and Frameworks like TEIPublisher, Transkribus, eScriptorium, Pandore Toolbox, ediarum, EVT, ...</p></li>
+<li><p>Collections of digitized sources that are provided by archives, libraries or national initiatives (for example in Switzerland: https://www.e-manuscripta.ch)</p></li>
+<li><p>Library and IT services: for technical infrastructure and maintenance</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><h3 id="faircare" data-number="4.0.1" class="anchored"><span class="header-section-number">4.0.1</span> <strong>FAIR/CARE</strong></h3>
+<ul>
+<li><p>Make sure you choose universal standards so that your work is usable across platforms and software-independent (for example XML, HTML, ...)</p></li>
+<li><p>Let people know under which conditions your work can be reused (license)</p></li>
+<li><p>Assign a unique identifier to your work so that it can be cited (for example a Digital Object Identifier (DOI))</p></li>
+<li><p>Whenever possible, publish all the software created during the research process (like scripts created for data processing)</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><h3 id="checklist" data-number="4.0.2" class="anchored"><span class="header-section-number">4.0.2</span> <strong>📋 Checklist</strong></h3>
+<ul>
+<li><p>Make sure you have access to your primary sources, your objects of research and verify what you are allowed to do with the material<mark></mark></p></li>
+<li><p>Learn which formats, technologies and platforms are best suited to your needs<mark></mark></p></li>
+</ul>
+<!-- -->
+<ul>
+<li>Document your choices in terms of sources, licenses, editorial guidelines, data formats, and software stacks<mark></mark></li>
+</ul>
+<!-- -->
+<ul>
+<li>Declare the options for reusing your data<mark></mark></li>
+</ul>
+<blockquote class="blockquote">
+<p><mark></mark></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Figure 4.1: Flowchart of the implementation process (mapping tools and formats to each step), image by the authors, CC BY 4.0.</p>
+<section id="from-primary-sources-to-digital-data-4.1." class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="from-primary-sources-to-digital-data-4.1."><span class="header-section-number">4.1</span> From primary sources to digital data (4.1.)</h2>
+<section id="collecting-and-digitising" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="collecting-and-digitising"><span class="header-section-number">4.1.1</span> Collecting and digitising</h3>
+<p>Before beginning any work on a Digital Scholarly Edition (DSE), it is necessary to obtain the “edendum” (from Latin, roughly translatable as “that needs to be given or to be edited”), e.g., the core of the edition, the primary sources or their representations as digital documents (i.e.&nbsp;images). Such a corpus can be obtained by gathering and, if needed, digitising source documents. Items in different conservation conditions will come with different requirements. Some objects cannot be digitised, for instance manuscripts that are in such bad shape that they would fall apart if you tried to open them.<mark></mark></p>
+<p>Gathering your sources can be achieved in different ways.</p>
+<p>The digital edition project can be done <strong>in cooperation with a memory institution holding the objects</strong>,. In that case, the gathering and digitising phases will usually happen at the same time, as the memory institution will probably digitisation in house, before sharing the collection with the rest of the DSE project team .</p>
+<p>The digital edition project can also stem from the <strong>request of private parties</strong> who may provide funding themselves. In that case, the digitisation could be done by an external provider.</p>
+<p>In a similar way, the digital edition could be <strong>a one-person endeavour</strong>, for example as part of a graduate or PhD thesis, and in that case, unless you have the funding or cooperate with a memory institution, you are responsible for the digitisation.</p>
+<p>Finally, the last—and more convenient—option is that the <strong>objects you want to edit are already digitised and available online</strong>, as is the case, for example, with objects from the French National Library (BNF), as most of its holdings are available on the platform Gallica or with the holdings of the Norwegian National Library (NB) . This scenario will give the editor the opportunity to start working right away.</p>
+<p>Is the collection on a platform hosted by a library, archive or similar institutions, and does it contain images? Then the editor has to ask the institution if a re-digitisation is needed (or possible). In some cases, only images from older digitisations are available. Modern digitisation efforts at memory institutions in Europe and many other places are done in accordance with international standards and with appropriate documentation of the technical and technological procedures. However, documentation might be difficult to find and smaller institutions, especially on the regional and local level might not have the infrastructure and knowledge required to adhere to international standards. Here, expect to only have digital images and basic metadata provided. The digitised material is created in accordance with international standards. Whether the editor has to procure digital imagesof the objects of their edition or has to outsource the digitisation, they have to make sure that the quality of the images and their metadata meets certain standards. Depending on the objects in question and the aim of the DSE, these may vary. Some funding agencies, like the German Research Foundation, have published practical guidelines for the digitisation of documents and other artifacts; others provide technical requirements in addition (see Altenhöner et al.&nbsp;2023). When using digital images of documents and other media, make sure to credit the rights holder, for example the photographer or the memory institution, and check the licenses and available file formats. This information must be included in your data management plan (<mark>➚</mark> <strong>3.4.1. The DMP</strong>) as well as in the information pertaining to data publication (<mark>➚</mark> <strong>2.3.2. Rights and Licences</strong> ; <mark>➚</mark> <strong>5.2.2. Persistent identifiers</strong>).</p>
+<p>On this topic, see the training unit “Automatic Text Recognition – where and how to get images”: https://campus.dariah.eu/resources/hosted/automatic-text-recognition-atr-video-2-where-and-how-to-get-images</p>
+</section>
+<section id="transcribing-textual-data" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="transcribing-textual-data"><span class="header-section-number">4.1.2</span> Transcribing textual data</h3>
+<p>Having a digitised document is a good first step, but a digital scholarly edition requires human and machine-readable text. This section concerns itself primarily with the edition of textual documents and how to proceed when extracting machine-readable text from digital images.</p>
+<p>Source documents can be handwritten, engraved, or printed and come in different languages, scripts, styles, formats and layouts. Think about documents that contain illustrations and ornaments, annotations in line or in the margins, or have been damaged or repurposed so that characters, words or even larger parts of texts are lost. These material features alongside the textneed to be made processable by a computer.</p>
+<p>There are two approaches to transcription: Either you create the transcription manually, or by using software which performs automatic segmentation and text recognition on the digital images of your documents. When you decide whether manual or automatic transcription is more suitable, several aspects have to be taken into account: One aspect concerns the time spent on manual transcription versus using a tool for Automatic Text Recognition (ART) and correcting the output manually or even training -document or writer-specific text recognition models. The language and writing style of the documents in your edition can also be a tricky issue. While there are many powerful and highly accurate text recognition models for printed texts in most modern languages out there (you can use free or commercial Optical Character Recognition tools), the situation looks different when it comes to historical print and handwritten or engraved texts. Handwritten Text Recognition (HTR) has developed significantly in the past years, and we now have many HTR models available that transcribe documents with medium to high accuracy. This is especially true for historical European, Latin-based scripts and languages, but increasingly so for Arabic and other non-Latin scripts, too. In most cases, the automatically generated transcriptions need to be quality-checked and corrected by a human with the appropriate paleography and language skills, to be suitable for a DSE. There are several options available when doing ATR and their application depends on editorial needs, technical skills, and the types of documents that are processed. For printed documents with standard typography and layout, one, free option is to use Tesseract OCR, which works on a large number of modern scripts and languages. Running Tesseract OCR usually requires interacting with the command line,, however, it is available with a Graphical User Interface (GUI) inthe Pandore Toolbox. For documents with non-standard or heterogeneous scripts, or a mix of printed and handwritten text, the Transkribus platform for automatic text recognition can be useful. Working with the Transkribus platform is free, however, processing a larger amount of documents and/or using general, highly accurate, and fast HTR models requires a subscription.. Another widely used, free and open source text recognition instance is eScriptorium , powered by the Kraken OCR engine. eScriptorium has many open source HTR models for non-Latin scripts and non-European languages, especially Semitic languages.. Some commercial generative AI tools, like Mistral, are becoming better at text recognition for historical documents, too. Consider the ethical issues related to the use of generative AI before you embark on your journey. (see chapter 6). before doing so, see chapter 6 on ethical issues related to the use of AI). You can <mark>check this ATR-tutorial to understand which option is the best for your project: https://www.adfontes.uzh.ch/tutorium/atr</mark>.</p>
+<p>Some tools are conceived to support the manual transcription of digitised documents and some even support collaborative work in a virtual environment, for example ediarum for Oxygen XML editor, the Edition Visualisation Technology (EVT) for VSCode, Tacteo, or the TextGrid platform. It is also possible to use programming or web development environments like VSCode or GNOME Builder, or simply to produce a text file with your prefered editor.. The choice of platform, software and interface will have an impact on the data format and structure; therefore, the furthur steps of the workflow might differ. Version controlling, for example with Git, can assist workflow monitoring and collaboration.</p>
+<p>Your editorial choices define how and what you transcribe and which tools to use. If you decide to create a diplomatic transcription, your aim is to render the text and the layout exactly as they are displayed in the primary source. While n a reading version of the edited text, you would normalise spelling and punctuation, and modernise the structure and layout of the text to best suit modern readers’ expectations and habits.</p>
+<p>Documenting your editorial guidelines, your use of automatic transcription tools and aids as well as the guidelines and practices of your human transcribers is considered good practice.</p>
+</section>
+<section id="encoding-textual-data" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="encoding-textual-data"><span class="header-section-number">4.1.3</span> Encoding textual data</h3>
+<p>Encoding textual data is a key step of a digital edition project. Text encoding consists of adding machine-readable information to a text in order to describe its structure, features of interest and your scholarly interpretation of it. These annotations can facilitate the analysis and increase the findability and reusability of the data. The annotation process involves adding semantic information to the text, which means that the markup does not only describe how a text looks, but also what its components represent.</p>
+<p>Several technical approaches exist for encoding texts. In the humanities, the most widely adopted standard has been provided by the Text Encoding Initiative (TEI), alongside the related guidelines TEI-P5. For encoding musical notation in a machine-readable structure there is the Music Encoding Initiative (MEI), a community-driven, open-source effort whichs aims to provide an encoding system similar to the TEI. By using an established, widely used standard like TEI, your encoding will adhere to the FAIR principles (Calvo Tello et al.&nbsp;2024). Furthermore, the TEI community offers teaching material and additional digital services on their website.</p>
+<p>[Insert a paragraph where you explain in simple terms that TEI is an XML schema; that it is a complex and extensive schema that tries to cover all kinds of textual phenomena and thus needs to be reduced and customised for your specific documents, scope, and aims of DSE. It is not adviseable to use the TEI in its entirety. Then you go over to “A customised XML schema reflects data modelling choices…” ]</p>
+<p>Firstly, whether using TEI or not, it is useful to create an XML schema. An XML schema reflects data modelling choices. It predefines and formalises the organisation and content of an XML document. An XML schema a) helps you keep track of decisions and b) makes sure that an XML document is valid and well-formed by showing where there are mistakes based on the predefined annotation rules. There are a lot of openly available schemas for a variety of sources. If they do not meet all one’s needs, it is possible to build upon them. Help with the development of a TEI/XML schema is provided by the ODD (One Document Does it all) specification.</p>
+<p>One starting point for the encoding phase can be the choice of metadata, that is, data about your data or additional information about your object of study. In the TEI, metadata is grouped in the TEI header (&lt;teiHeader&gt;). This section is dedicated to the gathering of different types of information, such as details on the primary source and theelectronic file containing the edition, the editorial choices and the project in general. The level of detail depends on the goals of the edition, although some parts of the TEI header are mandatory. There is a dedicated section of the TEI guidelines specifying which parts of the TEI header are concerned: https://tei-c.org/release/doc/tei-p5-doc/en/html/HD.html.</p>
+<p>It is important to adhere to the main structure of the original text, such as its division in chapters, paragraphs, stanzas etc., so that the digital edition reflects the organisation of the source document. In an interpretative transcription, an editor may decide to normalise certain word forms or to correct mistakes introduced during the writing process.</p>
+<p>Another type of metadata to cover are named entities appearing in the source document such as persons, organisations, places and events. Keep in mind that there are different ways to annotate entities in your data, depending on the granularity you want to have. For example, a person may be tagged simply as &lt;person&gt;, but you could also be more specific and indicate other information on the name inside the TEI tag &lt;persName&gt;. The TEI guidelines provide many useful examples for encoding named entities.</p>
+<p>Encoding named entiries and connecting them to authority files or other Linked Open Data (LOD) services, makes entities explicit and unequivocal. One German example for authority files would be the Gemeinsame Normdatei (translated as Integrated Authority File, short GND), provided by the German National Library, which is also popular in other German speaking countries. The Virtual International Authority File () is also widely used in Europe and the Americas when referencing a person or an organisationand is linked to many libraries across the world. Wikidata is another option and covers all kinds of named entities. For geographical names, like countries, cities, towns, or geographical regions GeoNames is most widely used.Country-specific options exist, e.g.&nbsp;the Swiss portal ortsnamen.ch which is dedicated to research on geographical names. All these resources are connected to one another.</p>
+<p>Depending on the goals of a DSE project and the technical environment in which the data will be used, some rely on simplified XML schemas derived from the TEI, while others use formats such as <mark>HyperText Markup Language</mark> (HTML), <mark>JavaScript Object Notation</mark> (JSON) or <mark>Resource Description Framework</mark> (RDF), particularly when interoperability with web technologies or linked data environments is required. In practice, many projects combine several formats: TEI to encode the text itself and other formats to publish, query, or connect the data with external resources (<mark>➚</mark> <strong>4.2. The many lives of the data</strong>).</p>
+</section>
+<section id="working-with-non-textual-objects" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="working-with-non-textual-objects"><span class="header-section-number">4.1.4</span> Working with non-textual objects</h3>
+<p>Many editions contain non-textual material alongside text. There are also editions with a main focus on images, artworks, music, video or other cultural heritage objects. Although this book focuses on text as a research object, in this section we briefly present an example of non-textual digital editing, i.e., a music edition.</p>
+<p>A music edition is a specific type of scholarly edition, with more and more examples using the Music Encoding Initiative (MEI) for encoding musical notation (Corpus Musicae Ottomanicae (CMO), Beethoven, etc.). In this way, music editions are similar to text editions and the MEI framework treats musical notation in the same way that the TEI treats text. They face similar problems in terms of transcription, structure and data modelling. Not all music editions annotate or publish audio data.</p>
+<p>For annotating audio files, there is a variety of tools available. These annotations can be created and stored in a long-term usable format such as TEI-XML. Information about the audio file (identifiers and time stamps) would be encoded as metadata in the same TEI file. Independently from the front end (presentation layer) and back end (database, repository), the data can be reused and preserved in accordance with the FAIR principles.</p>
+<p>An example of an edition of oral cultural heritage is Dengbêj Gazîn: Die Lieder einer Kurdin. It combines the recordings (audio files and some external Youtube video links) with the transcription and translation of the annotated song text. All textual material is provided in TEI and licensed with a Creative Commons Attribution 4.0 International License (CC BY 4.0), while the recordings stay copyright protected. The metadata refers to both the text and the audio file. An audio player was added to the web interface. The presentation layer is exchangeable.</p>
+</section>
+</section>
+<section id="the-many-lives-of-the-data-format-diversity" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="the-many-lives-of-the-data-format-diversity"><span class="header-section-number">4.2</span> The Many Lives of the Data / Format Diversity</h2>
+<p><strong>Keywords :</strong></p>
+<p><strong>Keyword1: <mark>word processor</mark></strong></p>
+<p><strong>Keyword2:format</strong></p>
+<p><strong>Keyword3:authority files</strong></p>
+<p><strong>Keyword4:metadata</strong></p>
+<p><strong>Keyword5: ontology</strong></p>
+<p><strong>Keyword6: WYSIWYG</strong></p>
+<p>Using multiple data formats can improve the reusability and interoperability of a digital scholarly edition, as different formats serve different purposes. Some formats are particularly interesting for long term preservation and usability, while others facilitate publication or data exchange. Designing a project in a modular way makes it possible to generate and maintain several formats from the same underlying data, ensuring that the edition remains usable across different platforms and over time. A landscape of formats and technologies with a scope of interoperability can be found on the German technology stack (Tech-Stack). Conversions from one format to another may be achieved using transformations, e.g using scripts or stylesheets, like <mark>Extensible Stylesheet Language Transformations</mark> (XSLT), a language designed for transforming XML documents into other XML documents or other formats such as HTML for web pages, plain text, or XSL Formatting Objects (XSL-FO).</p>
+<section id="metadata-formats" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="metadata-formats"><span class="header-section-number">4.2.1</span> Metadata formats</h3>
+<p>Metadata are data. To be precise, they are data describing data. Metadata need to be expressed in structured formats in order to be exchanged, harvested, understood and properly stored. They can be placed inside the data file or dataset, for example in a TEI header, or in a separate file.</p>
+<p>Standards for metadata are regulated by ontologies. In computer and information science, ontologies are <mark>a structured, machine-readable framework that formally defines concepts, properties, and the relationships within a specific domain</mark>. These ontologies often use so called controlled vocabularies, that is a standardised list of predefined terms used to organise, index, and retrieve information<mark>.&nbsp;</mark> Complex metadata systems involve several ontologies (see for example the system used by the <a href="https://data.bnf.fr/semanticweb#Ancre3">BNF</a>). XX THIS PARAGRAPH IS QUITE ABSTRACT FOR PEOPLE WHO HAVE NO IDEA WHAT THIS IS ABOUT; AN EXAMPLE WOULD BE GOODXX</p>
+<p>A common and widely used metadata standard is Dublin Core.. The Dublin Core standard is a universal recommendation for the description of documentary resources, based on a fairly simple ontology that draws on different vocabularies and different models and can be rendered in different formats.</p>
+<p>Simple Dublin Core contains 15 fundamental elements; qualified Dublin Core has undergone additions that specify subcategories and include further recommendations for the use of particular controlled vocabularies. The Dublin Core standard is primarily a sort of checklist for producing a structured description of a collection or documentary resource, like books or manuscripts. Dublin Core metadata can be serialised in different ways, using different machine-readable formats or languages like RDF-XML, XML, or HTML-XHTML.</p>
+</section>
+<section id="image-formats-in-dses" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="image-formats-in-dses"><span class="header-section-number">4.2.2</span> Image formats in DSEs</h3>
+<p>The choice of image formats depends on your editorial needs and your financial, technical and project-specific possibilities. While the commonly used PDF (Portable Document Format) is very robust and and good for exchanging data. However, if you need to extract information, like text or image metadata from a PDF, you will need to transform it, for example by performing automatic text recognition.</p>
+<p>Other common image formats are <mark>Portable Network Graphic</mark> (PNG), <mark>Joint Photographic Experts Group</mark> files (JPEG) and <mark>Tagged Image File Format</mark> (TIFF). TIFF is a proprietary format , optimised for multiple-layer images. It provides high level contrast and quality and can be used as a compressed file (as a .zip file) to store and display several images in a single file.</p>
+<p>JPEG and PNG are non-patented and non-proprietary formats. Usually, JPEG provides lighter images than PNG.PNG is a lossless format, which means that filtering and compression preserve all information from the original image. If you need very high quality images, you should choose PNG over JPEG.</p>
+<p>The Wikipedia has a great article about the different image formats.</p>
+<p>All image formats allow to add some metadata directly in the file. It can be useful to discuss with the archive that holds the original sources which metadata they wish to include.</p>
+<p>Should there be many images requiring metadata enrichment, it is possible to use a script or a tool. These can usually be provided by institutional IT support.</p>
+<p>To make images available online, they should be combined with the related metadata, connected with other online material and allowed for people to interact with them: to do so, some possibilities are offered by the International Image Interoperability Framework (IIIF: https://iiif.io/).</p>
+</section>
+<section id="the-textual-documents-plain-text-docxodt-markdown-latex-xml-alto-xml-page" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="the-textual-documents-plain-text-docxodt-markdown-latex-xml-alto-xml-page"><span class="header-section-number">4.2.3</span> The textual documents: Plain Text, DOCX/ODT, Markdown, LaTex, XML ALTO, XML PAGE</h3>
+<p>Once again, the best format is the format that suits the specific project and its goals best. [And how is the reader of this handbook supposed to know what the best format is that suits their needs? You are supposed to tell them what format suits best which goal! Don’t leave them hanging here. They have probably never heard of Markdown or XML ALTO, so how are they supposed to choose?] Any decision will have consequences on the fairness and durability of the data. [Yes, and that is why you need to provide them with the information to make that decision.]</p>
+<p>If there is no need for semantic annotations, it is possible to use plain text formats like TXT. It is a light, interoperable, open format with a very strong reliability, however, it poorly stores and represents structual information like highlighting, headings, or font changes.it should be compatible with a <mark>word processor</mark>. A word processor is a software dedicated to the production of highly formatted documents, with a WYSIWYG (What You See Is What You Get) perspective.</p>
+<p>DOCX is the format maintained by Microsoft for the Office suite. DOCX is a very elaborate format. It has been created to replace DOC in order to produce more interoperable files. Like for TIFF, a DOCX file is in fact a sort of container of multiple files. It relies on a specific and proprietary specification of XML, Open XML. For the same kind of service (styling and formatting), you can use instead LibreOffice and the ODT format.</p>
+<p>Considering specific and complex formatting needs, for example when dealing with mathematical texts involving equations and similar elements, a more specialised format might be useful, such as Markdown and TeX , available with text editors or online platforms (such as Overleaf).</p>
+<p>If you have used applications like Transkribus or eScriptorium for automatic text recognition, you will have the option to export the text with information about text and layout structure. Two common formats which contain specific layout and position information are ALTO XMLl and PAGE XML, which can be transformed into TEI compatible encoding. For platforms like Transkribus, you can also export TEI XML directly.</p>
+</section>
+<section id="deployment-and-visualisation-html-with-css-pdf-csv-gis" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="deployment-and-visualisation-html-with-css-pdf-csv-gis"><span class="header-section-number">4.2.4</span> Deployment and Visualisation: HTML with CSS, PDF, CSV, GIS</h3>
+<p>As pointed out in <mark>Andrews and Van Zundert (2018)</mark>, the way you choose to visualise your edition is in itself a mirror of your interpretation of the primary sources. An editor’s interface is their message to the users. The interface of a DSE is never neutral, just like all of the choices that are made in previous editorial steps about data modelling, encoding, and technology stack. The way texts are presented expresses editorial choices and interpretations.</p>
+<p>To make an edition accessible to the public, one option is to store the files in a repository (see <mark>➚ <strong>7.</strong></mark> <strong><mark>Appendix</mark></strong> for a list of infrastructures storing scholarly data), but in most cases, it is useful and expected display the data in a web interface. To do so, the encoded data should be transformed into formats that users can consult online. The most common frontend languages for websites are HTML, CSS and JavaScript. Making your edition accessible in this way also means providing an interface that allows for navigation, exploration and reuse. There are two principle ways to achieve this goal: using an existing digital edition framework or developing a custom interface from scratch (see <mark>➚</mark> <strong><mark>3.3.2</mark></strong> on planning for your <strong>Interface design</strong>).</p>
+<p>Deploying an interface, application or website online means making the data accessible on a web server so that users can consult them via a browser. In a typical architecture, the data layer (for example TEI-XML files or a database such as PostgreSQL or eXist-db) stores the encoded texts and metadata, while the back end handles queries and data transformations. The front end is the web interface that displays content. The entire system is hosted on a server (institutional infrastructure, research platform, or cloud service, often at a cost (<mark>➚</mark> <strong>7. Appendix</strong>) that delivers the website and ensures that the data and interface remain accessible online.</p>
+<p>Here are some points to remember when deploying an edition online and keeping user experience in mind:</p>
+<ul>
+<li><p>The interface should be easy to navigate through accessible menus</p></li>
+<li><p>The interface should be as inclusive as possible <mark>(➚<strong>3.3.3 Accessibility</strong>)</mark></p></li>
+<li><p>The interface should document the underlying methodology</p></li>
+<li><p>The interface should display exactly what the editor planned for it to display</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>It should include a feedback button or an easy contact form (<mark>➚</mark> <strong>5.2.3. Make your edition visible</strong>)</p></li>
+<li><p>Data should be easy to download (as PDF, CSV files or other formats), including the textual data, the metadata, images etc.,</p></li>
+<li><p>Offering APIs is a plus</p></li>
+<li><p>Licensing, credits and rights must be clearly stated</p></li>
+</ul>
+<p>The choices made when encoding the source document enable the interface to present the data differently. For a textual edition, this can include using the annotations to generate indexes of persons, places or works, even maps based on geographic references (GIS, cf.&nbsp;Recogito), or visualisations of networks, timelines, as well as statistical distributions (cf.&nbsp;the DFHG project). These visualisations can be produced using common technologies such as QGIS, Python libraries (e.g.&nbsp;Pandas, Matplotlib) or interactive tools like Plotly. They empower users with the opportunity to explore patterns in the data and approach the corpus from new analytical perspectives.</p>
+</section>
+</section>
+<section id="bibliography" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">4.3</span> Bibliography</h2>
+<p>Editions cited in this chapter</p>
+<p><a href="https://corpus-musicae-ottomanicae.de/content/index.xml?lang=en">Corpus Musicae Ottomanicae (CMO)</a></p>
+<p><a href="https://beethovens-werkstatt.de/">Beethoven</a></p>
+<p>Dengbêj Gazîn: Die Lieder einer Kurdin</p>
+<p>Resources and Literature</p>
+<p>Altenhöner, Reinhard, Andreas Berger, Christian Bracht, et al.&nbsp;<em>DFG Practical Guidelines on Digitisation. Updated Version 2022.</em> February 16, 2023. https://doi.org/10.5281/ZENODO.7561148.</p>
+<p>Andrews, Tara L., and Joris J. van Zundert. <em>What Are You Trying to Say? The Interface as an Integral Element of Argument</em>. Vol. 12, edited by Roman Bleier, Martina Bürgermeister, Helmut W. Klug, Frederike Neuber, and Gerlinde Schneider. BoD, 2018. <a href="http://www.uni-koeln.de/" class="uri">http://www.uni-koeln.de/</a>.</p>
+<p>Bisson, Marie, Edith Cannet, Anne Goloubkoff, et al.&nbsp;“Modélisation Des Métadonnées En XML-TEI. Pratiques de l’IR Métopes et Du Pôle Document Numérique de La MRSH de Caen.” October 2022. <a href="https://hal.science/hal-03830903" class="uri">https://hal.science/hal-03830903</a>.</p>
+<p>Calvo Tello, José, Mathias Göbel, Ubbo Veentjer, Stefan E. Funk, Nanette Rißler-Pipka, and Keli Du. “FAIR Derived Data in TEI and Its Publication in the TextGrid Repository.” <em>Journal of the Text Encoding Initiative</em> 18 (2024). https://doi.org/10.4000/13llz.</p>
+<p>Candela, Gustavo, María Dolores Sáez, MPilar Escobar Esteban, and Manuel Marco-Such. “Reusing Digital Collections from GLAM Institutions.” <em>Journal of Information Science</em> 48, no. 2 (2022): 251–67. https://doi.org/10.1177/0165551520950246.</p>
+<p>Cugliana, Elisa. <em>Coding Editions. Computational Approaches to the Editing of Pre-Modern Texts.</em> March 10, 2023. https://doi.org/10.5281/ZENODO.7715284.</p>
+<p>Cummings, James. “A World of Difference: Myths and Misconceptions about the TEI.” <em>Digital Scholarship in the Humanities</em> 34 (December 2018). https://doi.org/10.1093/llc/fqy071.</p>
+<p>Driscoll, Matthew James, and Elena Pierazzo. <em>Digital Scholarly Editing: Theories and Practices</em>. Open Book Publishers, 2016. https://doi.org/10.11647/obp.0095.</p>
+<p>Kanerva, Jenna, Cassandra Ledins, Siiri Käpyaho, and Filip Ginter. “OCR Error Post-Correction with LLMs in Historical Documents: No Free Lunches.” In <em>Proceedings of the Third Workshop on Resources and Representations for Under-Resourced Languages and Domains (RESOURCEFUL-2025)</em>, edited by Špela Arhar Holdt, Nikolai Ilinykh, Barbara Scalvini, Micaella Bruton, Iben Nyholm Debess, and Crina Madalina Tudor. University of Tartu Library, Estonia, 2025. https://aclanthology.org/2025.resourceful-1.8/.</p>
+<p>Kuczera, Andreas. “TEI Beyond XML–Digital Scholarly Editions as Provenance Knowledge Graphs.” <em>Graph Technologies in the Humanities—Proceedings 2020, CEUR Workshop Proceedings</em> 3110 (2020): 101. https://ceur-ws.org/Vol-3110/paper6.pdf</p>
+<p>O’Sullivan, James, Michael Pidd, Sophie Whittle, Bridgette Wessels, Michael Kurzmeier, and Órla Murphy, eds.&nbsp;<em>Digital Editing and Publishing in the Twenty-First Century</em>. 1st ed.&nbsp;Scottish Universities Press, 2025. https://doi.org/10.62637/sup.GHST9020.</p>
+<p>Roeder, Torsten, and Patrick Sahle. “Architekturen. Überblick über Software für Editionen.” Winter School Digitale Editionen, 02.-01.03 2019. https://www.i-d-e.de/wp-content/uploads/2019/11/08_Architekturen.pdf.</p>
+<p>Sahle, Patrick. <em>Digitale Editionsformen, Zum Umgang Mit Der Überlieferung Unter Den Bedingungen Des Medienwandels, 3 Bände</em>. n.d. https://www.i-d-e.de/publikationen/schriften/s7-9-digitale-editionsformen/.</p>
+<p>Spadini, Elena. “Scholarly Editing and the Semantic Web.” In <em>Quantitative Und Qualitative Analyseperspektiven Für Eine Digitale Briefforschung</em>, edited by Aline Deicke and Jochen Strobel. De Gruyter, 2025. <a href="https://doi.org/doi:10.1515/9783111675732-003" class="uri">https://doi.org/doi:10.1515/9783111675732-003</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/03-project-design.html" class="pagination-link" aria-label="Project Design: Planning the Editing Journey">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Design: Planning the Editing Journey</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/05-long-term-perspective.html" class="pagination-link" aria-label="Long term perspective on your edition">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long term perspective on your edition</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mrchristian/nextcloud-test/edit/main/chapters/04-implementation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/mrchristian/nextcloud-test/blob/main/chapters/04-implementation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
