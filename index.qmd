@@ -4,7 +4,7 @@ This is a Quarto book project.
 
 ## About this book
 
-Two parts:
+Parts:
 
  - Digital Scholarly Editions (DSE)
- - Nextcloud benchmarking
+

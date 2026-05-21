@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mrchristian.github.io/nextcloud-test/index.html</loc>
-    <lastmod>2026-05-20T11:21:26.998Z</lastmod>
+    <lastmod>2026-05-21T07:06:55.344Z</lastmod>
   </url>
   <url>
     <loc>https://mrchristian.github.io/nextcloud-test/chapters/01-introduction.html</loc>
@@ -33,15 +33,11 @@
     <lastmod>2026-05-20T11:19:22.865Z</lastmod>
   </url>
   <url>
-    <loc>https://mrchristian.github.io/nextcloud-test/chapters/08-benchmark-manual.html</loc>
-    <lastmod>2026-05-20T11:34:52.852Z</lastmod>
+    <loc>https://mrchristian.github.io/nextcloud-test/Nextcloud-Test.pdf</loc>
+    <lastmod>2026-05-21T07:10:00.553Z</lastmod>
   </url>
   <url>
-    <loc>https://mrchristian.github.io/nextcloud-test/chapters/09-benchmark-gemini.html</loc>
-    <lastmod>2026-05-20T11:34:37.501Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrchristian.github.io/nextcloud-test/chapters/10-benchmark-claude.html</loc>
-    <lastmod>2026-05-20T11:34:28.080Z</lastmod>
+    <loc>https://mrchristian.github.io/nextcloud-test/Nextcloud-Test.epub</loc>
+    <lastmod>2026-05-21T07:10:09.857Z</lastmod>
   </url>
 </urlset>
